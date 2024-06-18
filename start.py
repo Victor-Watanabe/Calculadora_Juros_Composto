@@ -4,22 +4,29 @@ import Information_for_calculations
 def first_face():
     sg.theme('reddit')
 
-    window_size = (550, 120)  # Largura x Altura em pixels
+    window_size = (580, 220)  # Largura x Altura em pixels
 
     # Estilo do botão "Próximo"
-    button_style = {'size': (10, 1), 'font': ('Times New Roman', 12, 'bold')}
+    button_style = {'size': (12, 1), 'font': ('Times New Roman', 14, 'bold')}
 
     layout = [
-        [sg.Text(
-            "Itens Calculáveis:", 
-            justification='center', 
-            size=(50, 1),
-            font=('Times New Roman', 14, 'bold'),  # Alterando a fonte para Times New Roman
-            text_color='black',  # Cor do texto preto
-        )],
-        [sg.Text("Podemos Calcular os Seguintes Itens: Montante, Capital Inicial, Valor de Juros e Tempo.\nClique em 'Seguir' Para Continuar.")],
-        [sg.Text('', size=(50,1)), sg.Button("Seguir", **button_style), sg.Text('')]  
-    ]
+    [sg.Text(
+        "Calcule o Montante final de seu Investimento!", 
+        justification='center', 
+        size=(50, 1),
+        font=('Times New Roman', 20, 'bold'),  
+        text_color='black'
+    )],
+    [sg.Text("Para Calcular, Precisamos das Seguintes Informações:", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
+    [sg.Text("* Capital Inicial;", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
+    [sg.Text("* Taxa de Juros;", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
+    [sg.Text("* Tempo Total de Investimento.", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
+    [sg.Text("Clique em '", text_color='black', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
+     sg.Text("Seguir", text_color='blue', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
+     sg.Text("' Para Continuar.", text_color='black', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
+     sg.Button("Seguir", **button_style, pad=((190, 0), 0))],
+    [sg.Text('', size=(20, 1))],  # Espaço vazio para separação
+]
 
     # Calculando a posição para centralizar a janela
     screen_width, screen_height = sg.Window.get_screen_size()
