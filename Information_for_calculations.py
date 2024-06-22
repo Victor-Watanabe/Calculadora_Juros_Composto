@@ -64,6 +64,7 @@ def data_base():
             window['percentage_fees'].update(percentage_formatted)  # Atualiza o campo com o valor formatado
             print(percentage_formatted)
             print(percentage_float)
+            print(len(percentage_formatted))
 
         elif event == 'time_in_mounths':  # Evento para formatar o valor assim que o usuário terminar de inserir
             mounth_typed = values['time_in_mounths']
@@ -71,6 +72,8 @@ def data_base():
             window["time_in_mounths"].update(month_formatted)
             print(month_formatted)
             print(month)
+
+        
 
     window.close()
 

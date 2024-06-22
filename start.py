@@ -21,9 +21,9 @@ def first_face():
     [sg.Text("* Capital Inicial;", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
     [sg.Text("* Taxa de Juros;", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
     [sg.Text("* Tempo Total de Investimento.", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
-    [sg.Text("Clique em '", text_color='black', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
+    [sg.Text("Clique em ''", text_color='black', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
      sg.Text("Seguir", text_color='blue', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
-     sg.Text("' Para Continuar.", text_color='black', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
+     sg.Text("'' Para Continuar.", text_color='black', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
      sg.Button("Seguir", **button_style, pad=((190, 0), 0))],
     [sg.Text('', size=(20, 1))],  # Espaço vazio para separação
 ]
