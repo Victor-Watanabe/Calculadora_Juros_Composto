@@ -30,6 +30,8 @@ def identify_formula():
             print("Usuário clicou SIM")
         elif event == 'NÃO':
             print("Usuário clicou NÃO")
+        elif event.startswith('Escape:27'):
+            break
 
     window.close()
 

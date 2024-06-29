@@ -1,7 +1,9 @@
 
 def format_percentage(value):
-    value_float = ''.join(filter(str.isdigit, str(value)))  # Remove todos os caracteres não numéricos
+    # Remove todos os caracteres não numéricos
+    value_float = ''.join(filter(str.isdigit, str(value)))  
 
+    # Remove todos os caracteres não numéricos
     value_string = ''.join(filter(str.isdigit, str(value)))
     
     # Verifica se o valor já tem um ponto decimal na posição correta
@@ -10,6 +12,9 @@ def format_percentage(value):
 
     else:
         pass
+
+    if len(value) == 3 and value_string[2] != "0":
+        percentage_formatted
 
     if len(value_string) == 0:
         percentage_formatted = "0.00%"
@@ -29,7 +34,6 @@ def format_percentage(value):
                     integer_part = integer_part.replace(integer_part[0],"") 
                 percentage_formatted = integer_part + "," + decimal_part + "%"
                 percentage_float = float(f"{integer_float}.{decimal_float}")
-                
                                 
                 return percentage_formatted, percentage_float
             
