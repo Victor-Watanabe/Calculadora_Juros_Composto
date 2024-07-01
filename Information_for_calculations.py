@@ -111,7 +111,6 @@ def data_base():
         elif event == 'time_in_mounths':  
             mounth_typed = values['time_in_mounths']
             month_formatted, month = format_month.format_month(mounth_typed)
-            print(month)
             window["time_in_mounths"].update(month_formatted)
                
 
@@ -120,7 +119,6 @@ def data_base():
                 month_formatted = "0 Meses"
                 month = 0 
                 window["time_in_mounths"].update(month_formatted)
-                print(month)
                 
             else:
                 month_string = month_formatted[-6:]
@@ -133,11 +131,15 @@ def data_base():
                 except:
                     month = 0
                 
-            print(month)
-
         elif event.startswith('Escape:27'):
             break
 
+    print(value_formatted)
+    print(number_float)
+    print(percentage_formatted)
+    print(percentage_float)
+    print(month_formatted)    
+    print(month)
     window.close()
 
 # Chamando a função principal

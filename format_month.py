@@ -18,16 +18,28 @@ def format_month(value):
     elif value_string == "1":
         month_formatted = f"{value_string} Mês"
         month = int(value_float)
-        if "0" in month_formatted[0]:
+        if "0" in month_formatted[0] and len(month_formatted) > 1:
             month_formatted = month_formatted.replace(month_formatted[0],"")
         return month_formatted, month
 
     elif len(value_string) > 1 and value_string[0] == "0":
-        value_string = value_string.replace(value_string[0],"")
-
-    else:
-        month_formatted = f"{value_string} Meses"
+        month_formatted = value_string.replace(value_string[0],"")
+        month_formatted = month_formatted + "Meses"
         month = int(value_float)
         
+        if month_formatted == "1Meses":
+            month_formatted = f"{value_string[1]} Mês"
+
+        return month_formatted, month
+        
+    else:
+        try:
+            month_formatted = f"{value_string} Meses"
+            month = int(value_float)
+
+        except: 
+            month_formatted = "0 Meses"
+            month = 0
+            
         return month_formatted, month
 
