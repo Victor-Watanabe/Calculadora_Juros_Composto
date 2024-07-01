@@ -45,7 +45,7 @@ def data_base():
             break
 
         # Se o Evento CALCULAR for acionado.
-        elif event == 'Calcular':
+        elif event in ('Calcular', 'Return', 'Return:36', 'Enter:13', '\r', 'Enter:108'):
             starting_capital_formatted = format_capital.format_currency(values['starting_capital'])
             percentage_fees = format_percentage.format_percentage(values['percentage_fees'])
             time_in_mounths = values['time_in_mounths']
@@ -133,13 +133,7 @@ def data_base():
                 
         elif event.startswith('Escape:27'):
             break
-
-    print(value_formatted)
-    print(number_float)
-    print(percentage_formatted)
-    print(percentage_float)
-    print(month_formatted)    
-    print(month)
+    
     window.close()
 
 # Chamando a função principal

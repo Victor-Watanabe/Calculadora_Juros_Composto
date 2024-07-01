@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+import Information_for_calculations
 
 def identify_formula():
     sg.theme('reddit')
@@ -20,7 +21,7 @@ def identify_formula():
         )]
     ]
 
-    window = sg.Window('Identificando Qual a Fórmula Aplicada📊', layout=layout)
+    window = sg.Window('Identificando Qual a Fórmula Aplicada📊', layout=layout, return_keyboard_events=True)
 
     while True:
         event, values = window.read()
@@ -30,7 +31,9 @@ def identify_formula():
             print("Usuário clicou SIM")
         elif event == 'NÃO':
             print("Usuário clicou NÃO")
-        elif event.startswith('Escape:27'):
+        elif event == 'Escape:27':
+            window.close()
+            Information_for_calculations.data_base()
             break
 
     window.close()
@@ -38,3 +41,4 @@ def identify_formula():
 # Chamando a função principal
 if __name__ == "__main__":
     identify_formula()
+
