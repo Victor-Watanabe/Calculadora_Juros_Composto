@@ -140,4 +140,3 @@ def data_base():
 if __name__ == "__main__":
     data_base()
 
-# Variaveis que serão Utilizadas para equação: Percentage_Float e number_float.

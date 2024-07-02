@@ -1,12 +1,37 @@
 import PySimpleGUI as sg
-import formula
+from decimal import Decimal, getcontext
+import result_interface
 
-def equation_interest(number_float,percentage_float,month):
-    montante = number_float * (1 + percentage_float / 100) ** month
-    montante = round(montante,2)
-    total_invested = number_float
-    fees = montante - number_float
-    fees = round(fees,2)
-    number_float = round(number_float,2)
+# Aumenta a precisão para lidar com números grandes
+getcontext().prec = 100  # Ajuste a precisão conforme necessário
 
-    print(f"O resultado de investimento após {month} meses: \n O total de Juros foi de {fees}; \n O total arrecadado foi de {montante};\n Com o valor de Capital Inicial de {number_float}.")
+def equation_interest(number_float, percentage_float, month):
+    # Converte os valores para Decimal para maior precisão
+    number = Decimal(number_float)
+    percentage = Decimal(percentage_float) / 100
+    months = Decimal(month)
+
+    # Cálculo de Equação Juros Composto SEM acréscimo
+    montante = number * (1 + percentage) ** months
+
+    # Descobrindo o Valor de Juros.
+    fees = montante - number
+
+    # Criando a Devida nomenclatura
+    total_invested = number
+
+    # Tratamento de dados para incluir 02 dígitos após vírgula
+    try:
+        montante = round(montante, 2)
+        fees = round(fees, 2)
+        total_invested = round(total_invested, 2)
+    
+    except: 
+        print("Valor Limite atingido, Preencha com valores menores!")
+
+    # Realizando o tratamento de dados para o valor aparecer em contábil
+    montante = "{:,.2f}".format(montante).replace(",", "X").replace(".", ",").replace("X", ".")
+    fees = "{:,.2f}".format(fees).replace(",", "X").replace(".", ",").replace("X", ".")
+    total_invested = "{:,.2f}".format(total_invested).replace(",", "X").replace(".", ",").replace("X", ".")
+
+    return result_interface.presenting_results(montante, fees, total_invested)

@@ -31,9 +31,11 @@ def identify_formula(number_float,percentage_float,month):
             break
 
         elif event == 'SIM':
+            window.close()
             interest_equation_with_addition.equation_interest_addition(number_float,percentage_float,month)
         
         elif event == 'NÃO':
+            window.close()
             Interest_equation.equation_interest(number_float,percentage_float,month)
 
         elif event == 'Escape:27':
