@@ -1,7 +1,9 @@
 import PySimpleGUI as sg
 import Information_for_calculations
+import interest_equation_with_addition
+import Interest_equation
 
-def identify_formula():
+def identify_formula(number_float,percentage_float,month):
     sg.theme('reddit')
 
     # Estilo dos botões
@@ -27,10 +29,13 @@ def identify_formula():
         event, values = window.read()
         if event == sg.WINDOW_CLOSED:
             break
-        if event == 'SIM':
-            print("Usuário clicou SIM")
+
+        elif event == 'SIM':
+            interest_equation_with_addition.equation_interest_addition(number_float,percentage_float,month)
+        
         elif event == 'NÃO':
-            print("Usuário clicou NÃO")
+            Interest_equation.equation_interest(number_float,percentage_float,month)
+
         elif event == 'Escape:27':
             window.close()
             Information_for_calculations.data_base()

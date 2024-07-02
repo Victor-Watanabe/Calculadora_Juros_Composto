@@ -44,24 +44,7 @@ def data_base():
         if event == sg.WINDOW_CLOSED:
             break
 
-        # Se o Evento CALCULAR for acionado.
-        elif event in ('Calcular', 'Return', 'Return:36', 'Enter:13', '\r', 'Enter:108'):
-            starting_capital_formatted = format_capital.format_currency(values['starting_capital'])
-            percentage_fees = format_percentage.format_percentage(values['percentage_fees'])
-            time_in_mounths = values['time_in_mounths']
-
-            # Se Faltar Preencher algum campo!
-            if not starting_capital_formatted or not percentage_fees or not time_in_mounths: 
-                print("Faltou Preencher Campo!")
-
-            else:
-                # Fechar a janela antes de chamar a função de cálculo
-                window.close()
-                
-                # Chamar a função para calcular usando os valores formatados
-                formula.identify_formula()
-
-            # Evento para formatar o valor assim que o usuário terminar de inserir
+       # Evento para formatar o valor assim que o usuário terminar de inserir
         elif event == 'starting_capital':  
             value_typed = values['starting_capital']
             value_formatted, number_float = format_capital.format_currency(value_typed)
@@ -133,6 +116,23 @@ def data_base():
                 
         elif event.startswith('Escape:27'):
             break
+
+         # Se o Evento CALCULAR for acionado.
+        elif event in ('Calcular', 'Return', 'Return:36', 'Enter:13', '\r', 'Enter:108'):
+            starting_capital_formatted = format_capital.format_currency(values['starting_capital'])
+            percentage_fees = format_percentage.format_percentage(values['percentage_fees'])
+            time_in_mounths = values['time_in_mounths']
+
+            # Se Faltar Preencher algum campo!
+            if not starting_capital_formatted or not percentage_fees or not time_in_mounths: 
+                print("Faltou Preencher Campo!")
+
+            else:
+                # Fechar a janela antes de chamar a função de cálculo
+                window.close()
+                
+                # Chamar a função para calcular usando os valores formatados
+                formula.identify_formula(number_float,percentage_float,month)
     
     window.close()
 
@@ -140,6 +140,4 @@ def data_base():
 if __name__ == "__main__":
     data_base()
 
-# Verificar, Pois está dando erro quando efetuado o número depois de acrescer o
 # Variaveis que serão Utilizadas para equação: Percentage_Float e number_float.
-# Arrumar o arquivo Fomrat_months seguindo os demais arquivos.
