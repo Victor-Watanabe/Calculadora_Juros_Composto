@@ -32,7 +32,7 @@ def identify_formula(number_float,percentage_float,month):
 
         elif event == 'SIM':
             window.close()
-            interest_equation_with_addition.equation_interest_addition(number_float,percentage_float,month)
+            interest_equation_with_addition.equation_interest(number_float,percentage_float,month)
         
         elif event == 'NÃO':
             window.close()
