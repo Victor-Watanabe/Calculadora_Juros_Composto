@@ -2,12 +2,12 @@ import PySimpleGUI as sg
 import Information_for_calculations
 
 def first_face():
-    sg.theme('reddit')
+    sg.theme('GreenTan')
 
     window_size = (580, 220)  # Largura x Altura em pixels
 
     # Estilo do botão "Próximo"
-    button_style = {'size': (12, 1), 'font': ('Times New Roman', 14, 'bold')}
+    button_style = {'size': (12, 1), 'font': ('Times New Roman', 16, 'bold')}
 
     layout = [
         [sg.Text(
@@ -22,7 +22,7 @@ def first_face():
         [sg.Text("* Taxa de Juros;", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
         [sg.Text("* Tempo Total de Investimento.", text_color='black', size=(100, 1), font=('Times New Roman', 14), justification='left')],
         [sg.Text("Clique em ''", text_color='black', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
-         sg.Text("Seguir", text_color='blue', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
+         sg.Text("Seguir", text_color='white', font=('Times New Roman', 15, 'bold'), justification='left', pad=(0, 0)),
          sg.Text("'' Para Continuar.", text_color='black', font=('Times New Roman', 14), justification='left', pad=(0, 0)),
          sg.Button("Seguir", **button_style, pad=((190, 0), 0))],
         [sg.Text('', size=(20, 1))],  # Espaço vazio para separação
@@ -43,9 +43,11 @@ def first_face():
             event == 'Seguir'
             window.close()
             Information_for_calculations.data_base() 
+        
         elif event == 'Seguir':
             window.close()
             Information_for_calculations.data_base() 
+        
         elif event == 'Escape:27':
             break
 

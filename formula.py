@@ -4,7 +4,7 @@ import interest_equation_with_addition
 import Interest_equation
 
 def identify_formula(number_float,percentage_float,month):
-    sg.theme('reddit')
+    sg.theme('GreenTan')
 
     # Estilo dos botões
     button_style = {'size': (8, 1), 'font': ('Times New Roman', 12, 'bold'), 'border_width': 1}
