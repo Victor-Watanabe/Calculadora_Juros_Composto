@@ -39,5 +39,4 @@ def equation_interest(number_float, percentage_float, months):
     montante = "{:,.2f}".format(montante).replace(",", "X").replace(".", ",").replace("X", ".")
     fees = "{:,.2f}".format(fees).replace(",", "X").replace(".", ",").replace("X", ".")
     total_invested = "{:,.2f}".format(total_invested).replace(",", "X").replace(".", ",").replace("X", ".")
-    print(f"{montante}\n {fees} \n {total_invested}")
     return result_interface.presenting_results(montante, fees, total_invested)
